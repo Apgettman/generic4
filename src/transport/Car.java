@@ -43,4 +43,7 @@ public class Car extends Transport implements Competing, iCanDrive {
         //System.out.println("Данных по авто недостаточно");
         System.out.println("Тип кузова: " + typeOfBody);
     }
+    public boolean service() {
+        return Math.random() > 0.7;
+    }
 }

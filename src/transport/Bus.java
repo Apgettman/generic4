@@ -51,6 +51,10 @@ public class Bus extends Transport implements Competing, iCanDrive {
         //System.out.println("Данных по авто недостаточно");
         System.out.println("Вместимость автобуса: от " + capacity.getFrom() + " до " + capacity.getTo());
     }
+    public boolean service() {
+        System.out.println("Автобус " + getBrand() + " " + getModel() + " в диагностике не требуется");
+        return true;
+    }
 }
 
 

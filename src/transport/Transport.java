@@ -33,7 +33,9 @@ public abstract class Transport implements Competing{
         System.out.println("Марка: " + getBrand() + ", Модель: " + getModel() + ", Объем: " + getEngineCapacity());
     }
     public void printType() {
-
+    }
+    public boolean service() {
+    return false;
     }
     public void pitStop() {
     }

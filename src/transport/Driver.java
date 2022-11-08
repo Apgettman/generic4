@@ -5,11 +5,25 @@ public class Driver <T extends Transport> {
     private final String fio;
     private final String availabilityOfRights;
     private final double experience;
-    public Driver(String fio, String availabilityOfRights, double experience) {
+    private String category;
+    public Driver(String fio, String availabilityOfRights, double experience, String category) {
         this.fio = fio;
         this.availabilityOfRights = availabilityOfRights;
         this.experience = experience;
+        this.category = category;
+        setCategory(category);
     }
+
+    public String getCategory() {
+        return category;
+    }
+    public void setCategory(String category) {
+        if (category == null) {
+            throw new IllegalArgumentException("Необходимо указать категорию прав");
+        }
+        this.category = category;
+    }
+
     public String getFio() {
         return fio;
     }

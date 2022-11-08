@@ -45,4 +45,7 @@ public class Truck extends Transport implements Competing, iCanDrive{
         String to = weight.getTo() == null ? "" : "до " + weight.getTo();
         System.out.println("Грузоподъемность авто: " + from + to);
     }
+    public boolean service() {
+        return Math.random() > 0.75;
+    }
 }

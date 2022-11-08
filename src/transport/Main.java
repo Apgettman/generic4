@@ -41,23 +41,43 @@ public class Main {
         kamaz.printType();
         gaz.printInfo();
         gaz.printType();
+        service(mercedesSl, audi, ford, bmw, man, zil, kamaz, gaz, mercedes, volvo, scania, tiger);
 
-        Driver driverB = new Driver("Петров Петр Петрович,", "кат.B,", 11.5);
+        Driver driverB = new Driver("Петров Петр Петрович,", "кат.B,", 11.5, "category");
         System.out.println(driverB.getFio() + " " + driverB.getAvailabilityOfRights() + " Стаж "
                 + driverB.getExperience() + " лет! Управляет автомобилем: " + bmw.getBrand() + " " + bmw.getTypeOfBody()
                 + " и будет участвовать в заезде!");
-        Driver driverC = new Driver("Иванов Иван Иванович,", "кат.С,", 15);
+        Driver driverC = new Driver("Иванов Иван Иванович,", "кат.С,", 15, "category");
         System.out.println(driverC.getFio() + " " + driverC.getAvailabilityOfRights() + " Стаж "
                 + driverC.getExperience() + " лет! Управляет грузовиком: " + man.getBrand() + " и будет участвовать в заезде!");
-        Driver driverD = new Driver("Васильев Василий Васильевич,", "кат.Д,", 20);
+        Driver driverD = new Driver("Васильев Василий Васильевич,", "кат.Д,", 20, "category");
         System.out.println(driverD.getFio() + " " + driverD.getAvailabilityOfRights() + " Стаж "
                 + driverD.getExperience() + " лет! Управляет автобусом: " + mercedes.getBrand() + " и будет участвовать в заезде!");
 
-        Driver<Truck> Sergey = new Driver<>("Смирнов Сергей Сергеевич", "кат.С,", 5);
+        Driver<Truck> Sergey = new Driver<>("Смирнов Сергей Сергеевич", "кат.С,", 5, "category");
         Sergey.driveC(man);
-        Driver<Car> Andrey = new Driver<>("Андреев Андрей Андреевич", "кат.B,", 10);
+        Driver<Car> Andrey = new Driver<>("Андреев Андрей Андреевич", "кат.B,", 10, "category");
         Andrey.driveB(bmw);
-        Driver<Bus> Dima = new Driver<>("Дмитриев Дмитрий Васильевич", "кат.Д,", 7);
+        Driver<Bus> Dima = new Driver<>("Дмитриев Дмитрий Васильевич", "кат.Д,", 7, "category");
         Dima.driveD(mercedes);
+
+    }
+
+    private static void service(Transport transport, Transport... transports) {
+        for (int i = 0; i < transports.length; i++) {
+            serviceTransport(transport);
+        }
+    }
+
+    private static void serviceTransport(Transport transport) {
+        try {
+            if (!transport.service()) {
+                throw new RuntimeException("Автомобиль " + transport.getBrand() + " " + transport.getModel()
+                        + " не прошел диагностику!");
+            }
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+
+        }
     }
 }
