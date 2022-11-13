@@ -1,6 +1,6 @@
 package transport;
 
-public class Truck extends Transport implements Competing, iCanDrive{
+public class Truck extends Transport implements Competing, iCanDrive {
 
     private Weight weight;
 
@@ -20,32 +20,44 @@ public class Truck extends Transport implements Competing, iCanDrive{
     public void startMoving() {
         System.out.println("Начинаю движение");
     }
+
     public void stopMoving() {
         System.out.println("Завершаю движение");
     }
+
     public void pitStop() {
         System.out.println("Пит-Стоп 1 минуту");
     }
+
     public void bestLapTime() {
         System.out.println("Лучшее время круга 10 минут");
     }
+
     public void maximumSpeed() {
         System.out.println("Максимальная скорость 150 км/ч");
     }
+
     public void refuel() {
     }
-    public void driver(String category){
-        System.out.println("Я управляю: "  + getBrand());
+
+    public void driver(String category) {
+        System.out.println("Я управляю: " + getBrand());
         System.out.println("У именя: " + Truck.CATEGORY_С);
     }
+
     public void printType() {
         if (weight == null) ;
-       // System.out.println("Данных по авто недостаточно");
+        // System.out.println("Данных по авто недостаточно");
         String from = weight.getFrom() == null ? "" : "от " + weight.getFrom() + " ";
         String to = weight.getTo() == null ? "" : "до " + weight.getTo();
         System.out.println("Грузоподъемность авто: " + from + to);
     }
+
     public boolean service() {
         return Math.random() > 0.75;
+    }
+
+    public void repair() {
+        System.out.println(getBrand() + " " + getModel() + " починен!");
     }
 }
